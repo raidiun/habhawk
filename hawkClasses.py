@@ -2,7 +2,8 @@
 
 
 class dictWrapper:
-	'''dictWrapper (Virtual):
+	'''
+		dictWrapper (Virtual):
 		Provides direct access to the dictionary used to assemble the abstracted object.
 	'''
 	def __getitem__(self,key):
