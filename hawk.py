@@ -1,4 +1,4 @@
-import json, habIntf, hawkClasses
+import json, habIntf, hawkClasses, hawkSDRIntf
 
 f = open("listenerConfig.conf","r")
 config = json.load(f)
