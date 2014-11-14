@@ -20,18 +20,27 @@ class TXConf(dictWrapper):
 		self.dict = txConfig
 		
 		#Everything appears to have these
-		self.frequency = txConfig["frequency"]
-		self.modulation = txConfig["modulation"]
-		self.mode = txConfig["mode"]
-		self.description = txConfig["description"]
+		for attribute in ["frequency","modulation","mode","description"]:
+			self.__setattr__(attribute,txConfig[attribute])
+		#self.frequency = txConfig["frequency"]
+		#self.modulation = txConfig["modulation"]
+		#self.mode = txConfig["mode"]
+		#self.description = txConfig["description"]
 		
 		#Appear with modulation=RTTY
-		self.baud = txConfig["baud"]
-		self.encoding = txConfig["encoding"]
-		self.shift = txConfig["shift"]
-		self.stop = txConfig["stop"]
+		if(self.modulation == "RTTY"):
+			for attribute in ["baud","encoding","shift","stop"]:
+				self.__setattr__(attribute,txConfig[attribute])
+		#self.baud = txConfig["baud"]
+		#self.encoding = txConfig["encoding"]
+		#self.shift = txConfig["shift"]
+		#self.stop = txConfig["stop"]
+		
 		#Appears with modulation=DominoEX
-		self.speed = txConfig["speed"]
+		if(self.modulation == "RTTY"):
+			for attribute in ["speed"]:
+				self.__setattr__(attribute,txConfig[attribute])
+		#self.speed = txConfig["speed"]
 
 
 class Payload(dictWrapper):
