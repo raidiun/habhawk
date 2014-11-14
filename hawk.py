@@ -2,9 +2,9 @@ import json, habIntf, hawkClasses, hawkSDRIntf
 
 f = open("listenerConfig.conf","r")
 config = json.load(f)
-close(f)
+f.close()
 
-uploader = habIntf.Uploader(config["callsign"])
+uploader = habIntf.Uploader(config["callsign"],config["habServer"],config["habDB"])
 
 def getDoc(docID):
 	global uploader
@@ -47,7 +47,7 @@ else:
 #Write new doc id's (if any) back to configuration file
 f = open("listenerConfig.conf","w")
 json.dump(config,f)
-close(f)
+f.close()
 
 #Get active flights
 activeFlights = []
