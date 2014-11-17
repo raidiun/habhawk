@@ -66,7 +66,14 @@ for flight in activeFlights:
 
 # Make the above run in a loop. How long do we make the loop length?
 #
-# Need to receive data from the SDR and use uploader.payload_telemetry(sentence)
+# Need to receive data from the SDR and use uploader.payload_telemetry(sentence):
+#
+# while(True):
+#	if(SDRNewData):
+#		newSen,meta = hawkSDRIntf.readSDRBuffer()
+#		uploader.payload_telemetry(newSen,meta)
+#
+#
 #
 # This data from the SDR should also include a "received frequency"
 # which is included in the upload metadata as a rig_info JSO as per fl-digi

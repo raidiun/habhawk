@@ -11,5 +11,7 @@ def sendTXConf(txConf):
 
 def readSDRBuffer():
 	'''Reads data from the SDR buffer. (Probably for use in habIntf.Extractor.push())'''
+	meta = {"rig_info":{"frequency":sdrCurrentFreq}}#etc
 	sdr = open("/dev/sdrBuff","r")
-	return(sdr.read(1))
+	
+	return(sdr.read(1),meta)
